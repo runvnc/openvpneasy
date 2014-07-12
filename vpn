@@ -36,7 +36,6 @@ fi
 if [ -e /etc/openvpn/server.conf ]; then
 	while :
 	do
-	clear
 		if [ "$#" -ne 2 ]; then
 		  echo "Usage:"
 		  echo "vpn add <clientname>"
@@ -49,7 +48,7 @@ if [ -e /etc/openvpn/server.conf ]; then
 		case $option in
 			add) 
 			echo ""
-			CLIENT=$3	
+			CLIENT=$2
 			cd /etc/openvpn/easy-rsa/2.0/
 			source ./vars
 			# build-key for the client
@@ -73,7 +72,7 @@ if [ -e /etc/openvpn/server.conf ]; then
 			exit
 			;;
 			remove)
-			CLIENT=$3
+			CLIENT=$2
 			cd /etc/openvpn/easy-rsa/2.0/
 			. /etc/openvpn/easy-rsa/2.0/vars
 			. /etc/openvpn/easy-rsa/2.0/revoke-full $CLIENT
