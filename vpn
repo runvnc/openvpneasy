@@ -36,7 +36,9 @@ fi
 if [ -e /etc/openvpn/server.conf ]; then
 	while :
 	do
-		if [ "$#" -ne 2 ]; then
+		if [[ "$1" == "uninstall" ]]; then
+ 		  nokeep=1
+                elif [ "$#" -ne 2 ]; then
 		  echo "Usage:"
 		  echo "vpn add <clientname>"
 		  echo "vpn remove <clientname>"
